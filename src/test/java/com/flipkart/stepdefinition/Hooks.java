@@ -1,17 +1,22 @@
 package com.flipkart.stepdefinition;
 
+import com.flipkart.resources.Commanactions;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-public class Hooks {
+public class Hooks extends Commanactions {
+	
+	Commanactions c = new Commanactions();
 	@Before
 	private void beforescenaio() {
-		System.out.println("welcome to cucumber");
+		c.launch("https://www.flipkart.com");
 
 	}
 	@After
 	private void afterscenaio() {
-	System.out.println("session ended");
+		driver.quit();
+		System.out.println("session ended");
 	}
 
 }
